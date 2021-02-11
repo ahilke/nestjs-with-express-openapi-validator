@@ -17,16 +17,19 @@
         "url": "https://github.com/ahilke/nestjs-with-express-openapi-validator/issues"
     },
     "scripts": {
-        "build": "nest build",
-        "dev": "nest start --watch"
+        "build": "npm run build:assets && nest build",
+        "build:assets": "shx cp src/openapi.yaml dist/",
+        "dev": "npm run build:assets && nest start --watch"
     },
     "dependencies": {
         "@nestjs/common": "^7.6.12",
         "@nestjs/config": "^0.6.3",
         "@nestjs/core": "^7.6.12",
         "@nestjs/platform-express": "^7.6.12",
+        "express-openapi-validator": "^4.10.11",
         "reflect-metadata": "^0.1.13",
-        "rxjs": "^6.6.3"
+        "rxjs": "^6.6.3",
+        "shx": "^0.3.3"
     },
     "devDependencies": {
         "@nestjs/cli": "^7.5.4",
