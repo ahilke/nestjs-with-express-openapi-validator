@@ -1,0 +1,54 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Ping API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/ping/{value}": {
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/value"
+                }
+            ],
+            "get": {
+                "operationId": "ping",
+                "responses": {
+                    "200": {
+                        "description": "Returns value.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Pong"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "value": {
+                "in": "path",
+                "name": "value",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
+        "schemas": {
+            "Pong": {
+                "type": "object",
+                "properties": {
+                    "pong": {
+                        "type": "string"
+                    }
+                },
+                "required": ["pong"]
+            }
+        }
+    }
+}

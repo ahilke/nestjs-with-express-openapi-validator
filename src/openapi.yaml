@@ -5,29 +5,9 @@ info:
     version: 1.0.0
 
 paths:
-    /ping:
-        post:
-            operationId: pingBody
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            type: object
-                            properties:
-                                ping:
-                                    type: string
-            responses:
-                200:
-                    description: Returns value of ping
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                properties:
-                                    pong:
-                                        type: string
-
     /ping/{value}:
+        parameters:
+            - $ref: "#/components/parameters/value"
         get:
             operationId: ping
             responses:
@@ -36,7 +16,22 @@ paths:
                     content:
                         application/json:
                             schema:
-                                type: object
-                                properties:
-                                    pong:
-                                        type: string
+                                $ref: "#/components/schemas/Pong"
+
+components:
+    parameters:
+        value:
+            in: path
+            name: value
+            required: true
+            schema:
+                type: string
+
+    schemas:
+        Pong:
+            type: object
+            properties:
+                pong:
+                    type: string
+            required:
+                - pong
