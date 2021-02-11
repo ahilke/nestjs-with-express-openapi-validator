@@ -11,5 +11,6 @@
         "outDir": "dist/",
         "declaration": true,
         "sourceMap": true
-    }
+    },
+    "include": ["src/main.ts"]
 }
