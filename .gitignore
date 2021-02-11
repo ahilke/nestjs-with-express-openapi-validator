@@ -1,0 +1,8 @@
+# IDEs
+.vscode/
+
+# Artifacts
+dist/
+node_modules/
+
+.env
