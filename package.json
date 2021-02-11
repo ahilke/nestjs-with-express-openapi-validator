@@ -1,0 +1,38 @@
+{
+    "name": "nestjs-with-express-openapi-validator",
+    "version": "0.0.0",
+    "description": "An example NestJS application using express-openapi-validator.",
+    "author": {
+        "name": "Arno Hilke",
+        "email": "arno.hilke@tum.de"
+    },
+    "license": "MIT",
+    "private": true,
+    "main": "dist/main.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ahilke/nestjs-with-express-openapi-validator.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ahilke/nestjs-with-express-openapi-validator/issues"
+    },
+    "scripts": {
+        "build": "nest build",
+        "dev": "nest start --watch"
+    },
+    "dependencies": {
+        "@nestjs/common": "^7.6.12",
+        "@nestjs/config": "^0.6.3",
+        "@nestjs/core": "^7.6.12",
+        "@nestjs/platform-express": "^7.6.12",
+        "reflect-metadata": "^0.1.13",
+        "rxjs": "^6.6.3"
+    },
+    "devDependencies": {
+        "@nestjs/cli": "^7.5.4",
+        "husky": "^4.3.8",
+        "lint-staged": "^10.5.4",
+        "prettier": "^2.2.1",
+        "typescript": "^4.1.5"
+    }
+}
