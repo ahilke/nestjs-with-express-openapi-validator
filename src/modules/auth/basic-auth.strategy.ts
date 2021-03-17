@@ -6,25 +6,28 @@ import { Strategy } from "passport";
 
 @Injectable()
 export class BasicAuthStrategy extends PassportStrategy(Strategy, "basic-auth") {
+    private challenge = "Basic";
+
     public constructor(private configService: ConfigService) {
         super();
     }
 
-    public authenticate(req: Request) {
+    public authenticate(req: Request): void {
         const authorization = req.headers.authorization;
+        console.log(this.challenge);
         if (authorization === undefined) {
-            this.fail();
+            return this.fail(this.challenge);
         }
 
         const authorizationMatch = authorization.match(/Basic (.*)/);
         if (authorizationMatch === null) {
-            this.fail();
+            return this.fail(this.challenge);
         }
         const credentials = Buffer.from(authorizationMatch[1], "base64").toString();
 
         const credentialsMatch = credentials.match(/(.*):(.*)/);
         if (credentialsMatch === null) {
-            this.fail();
+            return this.fail(this.challenge);
         }
 
         const username = credentialsMatch[1];
@@ -33,9 +36,9 @@ export class BasicAuthStrategy extends PassportStrategy(Strategy, "basic-auth") 
             this.configService.get("BASIC_AUTH_USER") !== username ||
             this.configService.get("BASIC_AUTH_PASSWORD") !== password
         ) {
-            this.fail();
+            return this.fail(this.challenge);
         }
 
-        this.success({ username, password });
+        return this.success({ username, password });
     }
 }

@@ -21,6 +21,7 @@ export class AppModule implements NestModule {
             },
             validateResponses: true,
             validateFormats: "full",
+            validateSecurity: false,
         });
 
         consumer.apply(...middlewares).forRoutes("*");
