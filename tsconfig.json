@@ -1,16 +1,19 @@
 {
     "compilerOptions": {
+        // Project Options
         "target": "ES2020",
         "module": "CommonJS",
-
-        "moduleResolution": "node",
-
-        "allowSyntheticDefaultImports": true,
-        "experimentalDecorators": true,
-
         "outDir": "dist/",
         "declaration": true,
-        "sourceMap": true
+        "sourceMap": true,
+
+        // Module Resolution
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+
+        // Experimental
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
     },
     "include": ["src/main.ts"]
 }

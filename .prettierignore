@@ -1,3 +1,4 @@
 # unsupported :(
+.env.dist
 .gitignore
 .prettierignore
