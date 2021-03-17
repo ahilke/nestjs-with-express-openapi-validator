@@ -1,8 +1,10 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, UseGuards } from "@nestjs/common";
+import { BasicAuthGuard } from "../auth/basic-auth.guard";
 
 @Controller()
 export class PingController {
     @Get("ping/:value")
+    @UseGuards(BasicAuthGuard)
     public ping(@Param("value") value: string) {
         return { pong: value };
     }
